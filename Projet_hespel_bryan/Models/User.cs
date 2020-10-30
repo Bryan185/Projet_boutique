@@ -16,8 +16,8 @@ namespace Projet_hespel_bryan.Models
         public string adresse { get; set; }
 
         public string password { get; set; }
-        public DateTime EnrollmentDate { get; set; }
-
-        public virtual ICollection<Enrollment> Enrollments { get; set; }
+        
+        
+        public virtual ICollection<Article> Articles { get; set; }
     }
 }
