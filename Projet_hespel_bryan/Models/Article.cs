@@ -23,5 +23,6 @@ namespace Projet_hespel_bryan.Models
         public int heure { get; set; }
         public virtual User User { get; set; }
         public virtual Catégorie Catégorie { get; set; }
+        public virtual Constructeur Constructeur { get; set; }
     }
 }
