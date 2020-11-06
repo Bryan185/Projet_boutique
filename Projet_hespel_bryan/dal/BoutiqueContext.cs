@@ -4,15 +4,16 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Projet_hespel_bryan.dal
 {
-    public class Boutique : DbContext
+    public class BoutiqueContext : DbContext
     {
-         public Boutique() : base("Boutique")
+         public BoutiqueContext() : base("BoutiqueContext")
             {
             }
 
          public DbSet<Article> Articles { get; set; }
          public DbSet<Catégorie> Catégories { get; set; }
          public DbSet<User> Users { get; set; }
+        public DbSet<Constructeur> Constructeurs { get; set; }
 
          protected override void OnModelCreating(DbModelBuilder modelBuilder)
           {
@@ -20,5 +21,3 @@ namespace Projet_hespel_bryan.dal
           }
         }
     }
-}
-}
