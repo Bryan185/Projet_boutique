@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,8 @@ namespace Projet_hespel_bryan.Models
 {
     public class Article
     {
+
+        [Key]
         public int id_article { get; set; }
         public int id_acheteur{ get; set; }
         public int id_vendeur { get; set; }
