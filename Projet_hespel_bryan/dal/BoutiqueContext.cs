@@ -11,13 +11,15 @@ namespace Projet_hespel_bryan.dal
             }
 
          public DbSet<Article> Articles { get; set; }
-         public DbSet<Catégorie> Catégories { get; set; }
+        public DbSet<Categorie> Categories { get; set; }
          public DbSet<User> Users { get; set; }
         public DbSet<Constructeur> Constructeurs { get; set; }
 
          protected override void OnModelCreating(DbModelBuilder modelBuilder)
           {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+
           }
         }
     }

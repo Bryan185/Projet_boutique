@@ -11,107 +11,107 @@ using Projet_hespel_bryan.dal;
 
 namespace Projet_hespel_bryan.Controllers
 {
-    public class UsersController : Controller
+    public class CategoriesController : Controller
     {
         private BoutiqueContext db = new BoutiqueContext();
 
-        // GET: Users
+        // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Categories.ToList());
         }
 
-        // GET: Users/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Categorie categorie = db.Categories.Find(id);
+            if (categorie == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(categorie);
         }
 
-        // GET: Users/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Categories/Create
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,prenom,nom,mail,adresse,password")] User user)
+        public ActionResult Create([Bind(Include = "categorieID,nom_categorie")] Categorie categorie)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Categories.Add(categorie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(categorie);
         }
 
-        // GET: Users/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Categorie categorie = db.Categories.Find(id);
+            if (categorie == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(categorie);
         }
 
-        // POST: Users/Edit/5
+        // POST: Categories/Edit/5
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,prenom,nom,mail,adresse,password")] User user)
+        public ActionResult Edit([Bind(Include = "categorieID,nom_categorie")] Categorie categorie)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(categorie).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View(categorie);
         }
 
-        // GET: Users/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Categorie categorie = db.Categories.Find(id);
+            if (categorie == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(categorie);
         }
 
-        // POST: Users/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Categorie categorie = db.Categories.Find(id);
+            db.Categories.Remove(categorie);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

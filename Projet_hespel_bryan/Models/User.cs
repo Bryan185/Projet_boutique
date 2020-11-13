@@ -9,7 +9,7 @@ namespace Projet_hespel_bryan.Models
     public class User
     {
         [Key]
-        public int id_user { get; set; }
+        public int userID { get; set; }
         public string prenom { get; set; }
         public string nom { get; set; }
 
@@ -21,5 +21,6 @@ namespace Projet_hespel_bryan.Models
         
         
         public virtual ICollection<Article> Articles { get; set; }
+        public virtual ICollection<User> Vente_articles { get; set; }
     }
 }

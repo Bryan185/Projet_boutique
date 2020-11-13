@@ -12,6 +12,7 @@ namespace Projet_hespel_bryan.dal
     {
         protected override void Seed(BoutiqueContext context)
         {
+            /*
             var Users = new List<User>
             {
                 new User{nom="Hespel",prenom="Bryan",password="bryan",mail="bryan.hespel@condorcet.be",adresse="15, rue de la châtellenie 7700 Mouscron"},
@@ -29,10 +30,10 @@ namespace Projet_hespel_bryan.dal
             };
             Articles.ForEach(s => context.Articles.Add(s));
             context.SaveChanges();
-            var Catégories = new List<Catégorie>
+            var Catégories = new List<Categorie>
             {
-                new Catégorie{nom_categorie="Jouets"},
-                new Catégorie{nom_categorie="Outils"}
+                new Categorie{nom_categorie="Jouets"},
+                new Categorie{nom_categorie="Outils"}
            
             };
             Catégories.ForEach(s => context.Catégories.Add(s));
@@ -44,6 +45,9 @@ namespace Projet_hespel_bryan.dal
             };
             Constructeurs.ForEach(s => context.Constructeurs.Add(s));
             context.SaveChanges();
+            */
         }
+            
     }
+            
 }

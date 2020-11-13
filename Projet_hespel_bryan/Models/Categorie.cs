@@ -6,10 +6,10 @@ using System.Web;
 
 namespace Projet_hespel_bryan.Models
 {
-    public class Catégorie
+    public class Categorie
     {
         [Key]
-        public int id_categorie { get; set; }
+        public int categorieID { get; set; }
         public string nom_categorie { get; set; }
         public virtual ICollection<Article> Articles { get; set; }
     }
