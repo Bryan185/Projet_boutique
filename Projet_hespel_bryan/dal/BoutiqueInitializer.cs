@@ -10,44 +10,43 @@ namespace Projet_hespel_bryan.dal
 {
     public class BoutiqueInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<BoutiqueContext>
     {
+
         protected override void Seed(BoutiqueContext context)
         {
-            /*
-            var Users = new List<User>
+            
+            var users = new List<User>
             {
-                new User{nom="Hespel",prenom="Bryan",password="bryan",mail="bryan.hespel@condorcet.be",adresse="15, rue de la châtellenie 7700 Mouscron"},
-                new User{nom="Delforge",prenom="Matteo",password="matteo4",mail="matteo@gmail.com",adresse="15, rue de la châtellenie 7700 Mouscron"}
-
+            new User{userID=2,prenom="Bryan",nom="Hespel",mail="bryan.hespel@condorcet.be",adresse="15, rue de la châtellenie 7700 Mouscron",password="1234"},
+            new User{userID=4,prenom="Matteo",nom ="Delforge",mail="matteo@gmail.com",adresse="15, rue de la châtellenie 7700 Mouscron",password="4321"},
+            new User{userID=3,prenom="Tia",nom ="Delforge",mail="matteo@gmail.com",adresse="15, rue de la châtellenie 7700 Mouscron",password="4321"}
             };
 
-            Users.ForEach(s => context.Users.Add(s));
+            users.ForEach(s => context.Users.Add(s));
             context.SaveChanges();
-            var Articles = new List<Article>
+            var articles = new List<Article>
             {
-                new Article{id_acheteur=1,nom_article="Samsung Galaxy S20",type="SmartPhone",prix=699,description="dernier modèle de chez Samsung"},
-                new Article{id_acheteur=1,nom_article="PS5",type="Console",prix=699,description="dernier modèle de console de Sony"}
-           
+            new Article{userID=2,nom_article="Samsung Galaxy S20",type="SmartPhone",prix=699,description="dernier modèle de chez Samsung"},
+            new Article{userID=2,nom_article="PS5",type="Console",prix=699,description="dernier modèle de console de Sony"}
             };
-            Articles.ForEach(s => context.Articles.Add(s));
+            articles.ForEach(a => context.Articles.Add(a));
             context.SaveChanges();
-            var Catégories = new List<Categorie>
+            var categories = new List<Categorie>
             {
                 new Categorie{nom_categorie="Jouets"},
                 new Categorie{nom_categorie="Outils"}
            
             };
-            Catégories.ForEach(s => context.Catégories.Add(s));
+            categories.ForEach(ca => context.Categories.Add(ca));
             context.SaveChanges();
-            var Constructeurs = new List<Constructeur>
+            var constructeurs = new List<Constructeur>
             {
-                new Constructeur{id_article=1,nom="Samsung"},
-                new Constructeur{id_article=2,nom="Sony"}
+                new Constructeur{nom="Samsung"},
+                new Constructeur{nom="Sony"}
             };
-            Constructeurs.ForEach(s => context.Constructeurs.Add(s));
+            constructeurs.ForEach(c => context.Constructeurs.Add(c));
             context.SaveChanges();
-            */
+            
         }
             
-    }
-            
+    }         
 }

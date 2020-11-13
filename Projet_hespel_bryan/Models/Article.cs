@@ -29,6 +29,7 @@ namespace Projet_hespel_bryan.Models
         public float prix { get; set; }
        
         public DateTime date_transaction { get; set; }
+        
         public DateTime date_mise { get; set; }
         public int heure { get; set; }
 

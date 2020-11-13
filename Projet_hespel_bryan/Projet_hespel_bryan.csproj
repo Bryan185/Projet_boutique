@@ -199,6 +199,7 @@
     <Content Include="Views\Constructeurs\Details.cshtml" />
     <Content Include="Views\Constructeurs\Edit.cshtml" />
     <Content Include="Views\Constructeurs\Index.cshtml" />
+    <Content Include="Views\Home\Connexion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

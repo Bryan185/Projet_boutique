@@ -9,29 +9,34 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Ibay", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
+                        <li>@Html.ActionLink("A propos", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Users", "Index", "Users")</li>
-                        <li>@Html.ActionLink("Boutiques", "Index", "Boutiques")</li>
-                        <li>@Html.ActionLink("Inscription", "Index", "Users")</li>
-                      
+                        <li>@Html.ActionLink("Boutique", "Index", "Articles")</li>
+                        <li>@Html.ActionLink("Catégories", "Index", "Categories")</li>
+                        <li>@Html.ActionLink("Constructeurs", "Index", "Constructeurs")</li>
+                        <li>@Html.ActionLink("Inscription", "Create", "Users")</li>
+                        <li>@Html.ActionLink("Connexion", "Connexion", "Home")</li>
+
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
+    
 
-    <div class="container">
+    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
