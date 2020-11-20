@@ -27,11 +27,15 @@ namespace Projet_hespel_bryan.Models
         public string description { get; set; }
 
         public float prix { get; set; }
-       
+
+        [DataType(DataType.Date)]
         public DateTime? date_transaction { get; set; }
-        
+
+        [DataType(DataType.Date)]
         public DateTime? date_mise { get; set; }
-        public int heure { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime heure { get; set; }
 
         public int categorieID{ get; set; }
         public virtual Categorie Catégorie { get; set; }

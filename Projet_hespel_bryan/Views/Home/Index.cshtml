@@ -3,8 +3,18 @@
 }
 
 <div class="jumbotron">
-    <h1>Bienvenue sur Ibay</h1>
-    Bonjour  @Session["Nom"] @Session["Prenom"]
+
+    @if (@Session["Nom"] == null)
+    {
+        <text>
+            <h1>Bienvenue sur Ibay</h1></text>
+    }
+    else
+    {
+        <text>
+            <h1>Bonjour @Session["Nom"] @Session["Prenom"]</h1></text>
+    }
+
 
 </div>
 <div class="row">

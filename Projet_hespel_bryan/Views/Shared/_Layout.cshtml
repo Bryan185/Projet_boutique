@@ -8,6 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,12 +24,21 @@
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
                     <li>@Html.ActionLink("A propos", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Connexion", "Index", "Login")</li>
                     <li>@Html.ActionLink("Boutique", "Index", "Articles")</li>
                     <li>@Html.ActionLink("Catégories", "Index", "Categories")</li>
                     <li>@Html.ActionLink("Constructeurs", "Index", "Constructeurs")</li>
-                    <li>@Html.ActionLink("Inscription", "Create", "Users")</li>
-                   
+                    </ul>
+                <ul class="nav right">
+                    @if (Session["Nom"] == null)
+                    {
+                        <li>@Html.ActionLink("Inscription", "Create", "Users")</li>
+                        <li>@Html.ActionLink("Connexion", "Index", "Login")</li>
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Deconnexion", "Deco", "Login")</li>
+                    }
 
                 </ul>
             </div>

@@ -370,9 +370,9 @@
     <Content Include="Views\Constructeurs\Details.cshtml" />
     <Content Include="Views\Constructeurs\Edit.cshtml" />
     <Content Include="Views\Constructeurs\Index.cshtml" />
-    <Content Include="Views\Users\Connexion.cshtml" />
     <Content Include="Views\Login\View.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Deco.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
