@@ -26,5 +26,6 @@ namespace Projet_hespel_bryan.Controllers
 
             return View();
         }
+        
     }
 }

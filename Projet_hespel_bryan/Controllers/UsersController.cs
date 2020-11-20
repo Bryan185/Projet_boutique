@@ -53,7 +53,7 @@ namespace Projet_hespel_bryan.Controllers
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Login");
             }
 
             return View(user);
@@ -114,6 +114,12 @@ namespace Projet_hespel_bryan.Controllers
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult Connexion()
+        {
+            ViewBag.Message = "Your connexion page.";
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)
