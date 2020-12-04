@@ -9,6 +9,7 @@ namespace Projet_hespel_bryan.Interface
     public interface IRepository
     {
         LoginDTO Authentifier(string email, string password);
-        
+        List<ArticleDTO> construct(int id);
+        //LoginDTO Compte(string email, string password, string adresse, string prenom, string nom);
     }
 }

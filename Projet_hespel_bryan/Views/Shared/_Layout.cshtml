@@ -28,19 +28,18 @@
                     <li>@Html.ActionLink("Catégories", "Index", "Categories")</li>
                     <li>@Html.ActionLink("Constructeurs", "Index", "Constructeurs")</li>
                     </ul>
-                <ul class="nav right">
-                    @if (Session["Nom"] == null)
-                    {
-                        <li>@Html.ActionLink("Inscription", "Create", "Users")</li>
-                        <li>@Html.ActionLink("Connexion", "Index", "Login")</li>
-
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Deconnexion", "Deco", "Login")</li>
-                    }
-
-                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Session["Nom"] == null)
+                        {
+                            <li>@Html.ActionLink("Inscription", "Inscription", "Login")</li>
+                            <li>@Html.ActionLink("Connexion", "Index", "Login")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Mon Compte", "Compte", "Users")</li>
+                            <li>@Html.ActionLink("Deconnexion", "Deco", "Login")</li>
+                        }
+                    </ul>
             </div>
         </div>
     </div>

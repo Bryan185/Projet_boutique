@@ -136,6 +136,7 @@
     <Compile Include="dal\BoutiqueContext.cs" />
     <Compile Include="dal\BoutiqueInitializer.cs" />
     <Compile Include="dal\Repository.cs" />
+    <Compile Include="DTO\ArticleDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -372,7 +373,9 @@
     <Content Include="Views\Constructeurs\Index.cshtml" />
     <Content Include="Views\Login\View.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Login\Deco.cshtml" />
+    <Content Include="Views\Login\Inscription.cshtml" />
+    <Content Include="Views\Constructeurs\Articlesconstru.cshtml" />
+    <Content Include="Views\Users\Compte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

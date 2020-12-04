@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Projet_hespel_bryan.Models.Constructeur>
 
+
 @{
     ViewBag.Title = "Index";
 }
@@ -11,9 +12,7 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id_article)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.nom)
         </th>
@@ -22,16 +21,15 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_article)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.nom)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.constructeurID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.constructeurID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.constructeurID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.constructeurID }) |
+            @Html.ActionLink("Tous les articles", "Articlesconstru", new { id = item.constructeurID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.constructeurID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.constructeurID })
         </td>
     </tr>
 }

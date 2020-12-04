@@ -20,6 +20,11 @@ namespace Projet_hespel_bryan.Controllers
         {
             return View(db.Users.ToList());
         }
+        public ActionResult Compte()
+        {
+         
+            return View();
+        }
 
         // GET: Users/Details/5
         public ActionResult Details(int? id)
@@ -35,6 +40,7 @@ namespace Projet_hespel_bryan.Controllers
             }
             return View(user);
         }
+       
 
         // GET: Users/Create
         public ActionResult Create()
@@ -85,7 +91,13 @@ namespace Projet_hespel_bryan.Controllers
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                Session["Nom"] = user.nom;
+                Session["Prenom"] = user.prenom;
+                Session["Email"] = user.mail;
+                Session["Adresse"] = user.adresse;
+                Session["Password"] = user.password;
+
+                return RedirectToAction("Compte");
             }
             return View(user);
         }

@@ -5,17 +5,25 @@
 }
 
 <h2>Index</h2>
+@if (@Session["Nom"] == null)
+{
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Catégorie.nom_categorie)
         </th>
         <th>
-            
+
             @Html.DisplayNameFor(model => model.Constructeur.nom) constructeur
         </th>
         <th>
@@ -45,44 +53,56 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Catégorie.nom_categorie)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Constructeur.nom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.prenom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nom_article)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.prix)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.date_transaction)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.date_mise)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.heure)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.articleID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.articleID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.articleID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catégorie.nom_categorie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Constructeur.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_article)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_transaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_mise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.heure)
+            </td>
+            @if (Session["Nom"] == null)
+            {
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.articleID })
+                </td>
+            }
+
+            else
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.articleID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.articleID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.articleID })
+                </td>
+            }
+        </tr>
+    }
 
 </table>

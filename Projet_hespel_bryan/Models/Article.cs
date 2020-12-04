@@ -17,10 +17,6 @@ namespace Projet_hespel_bryan.Models
         public int userID{ get; set; }
         public virtual User User { get; set; }
 
-       
-  
-
-
         public string nom_article { get; set; }
         public string type { get; set; }
 

@@ -1,0 +1,25 @@
+﻿@model Projet_hespel_bryan.Models.User
+@{
+    ViewBag.Title = "Compte";
+}
+
+<h2>Compte</h2>
+
+<div>
+    <h4>User</h4>
+    
+    Nom : @Session["Nom"] </br>
+    Prenom : @Session["Prenom"]</br>
+    Adresse : @Session["Adresse"]</br>
+    Password : @Session["Password"]</br>
+    Email : @Session["Email"]</br>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = @Session["ID"] }) 
+  
+
+</p>
+    
+
+
+

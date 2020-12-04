@@ -8,17 +8,27 @@ using System.Web;
 using System.Web.Mvc;
 using Projet_hespel_bryan.Models;
 using Projet_hespel_bryan.dal;
+using Projet_hespel_bryan.DTO;
+using Projet_hespel_bryan.Interface;
 
 namespace Projet_hespel_bryan.Controllers
 {
     public class ConstructeursController : Controller
     {
         private BoutiqueContext db = new BoutiqueContext();
+        private IRepository dbs;
 
         // GET: Constructeurs
         public ActionResult Index()
         {
-            return View(db.Constructeurs.ToList());
+            var constructeurs = db.Constructeurs.Include(a => a.Articles);
+
+            return View(constructeurs.ToList());
+        }
+        public ActionResult Articlesconstru(int id)
+        {
+            List<ArticleDTO> liste = dbs.construct(id);
+            return View(liste);
         }
 
         // GET: Constructeurs/Details/5
@@ -47,7 +57,7 @@ namespace Projet_hespel_bryan.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "constructeurID,id_article,nom")] Constructeur constructeur)
+        public ActionResult Create([Bind(Include = "constructeurID,nom")] Constructeur constructeur)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +89,7 @@ namespace Projet_hespel_bryan.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "constructeurID,id_article,nom")] Constructeur constructeur)
+        public ActionResult Edit([Bind(Include = "constructeurID,nom")] Constructeur constructeur)
         {
             if (ModelState.IsValid)
             {
@@ -123,6 +133,10 @@ namespace Projet_hespel_bryan.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ConstructeursController()
+        {
+            dbs = new Repository();
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Projet_hespel_bryan.DTO.ArticleDTO>
+@{
+    ViewBag.Title = "Articlesconstru";
+}
+
+<h2>Articlesconstru</h2>
+<div class="container">
+    @foreach (var item in Model)
+    {
+    <div class="col-sm-12">
+      Article :   @Html.DisplayFor(modelItem => item.nom)
+       Prix :  @Html.DisplayFor(modelItem => item.prix)
+    </div>
+    }
+</div>
