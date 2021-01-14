@@ -26,28 +26,35 @@ else if (@Session["ID"].Equals(1))
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nom_categorie)
-            </td>
-            <td>
-                @if (@Session["ID"] == null)
-                {
-                    @Html.ActionLink("Tous les articles", "Articlescatego", new { id = item.categorieID })
-                }
-                else if (@Session["ID"].Equals(1))
-                {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.nom_categorie)
+    </td>
+    <td>
+        @if (@Session["ID"] == null)
+        {
+            @Html.ActionLink("Tous les articles", "Articlescatego", new { id = item.categorieID })
+        }
+        else if (@Session["ID"].Equals(1))
+        {
+        <td>
+
+            @Html.ActionLink("Modifier", "Edit", new { id = item.categorieID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.categorieID }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.categorieID }) |
+            @Html.ActionLink("Tous les articles", "Articlescatego", new { id = item.categorieID })
+        </td>
+        }
+        else
+        {
 <td>
+    @Html.ActionLink("Tous les articles", "Articlescatego", new { id = item.categorieID })
+</td>
+        }
 
-                    @Html.ActionLink("Modifier", "Edit", new { id = item.categorieID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.categorieID }) |
-                    @Html.ActionLink("Supprimer", "Delete", new { id = item.categorieID }) |
-                    @Html.ActionLink("Tous les articles", "Articlescatego", new { id = item.categorieID })
-                        </td>
-                }
 
-            </td>
-        </tr>
+        </td>
+    </tr>
     }
 
 </table>

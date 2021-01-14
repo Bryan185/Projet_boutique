@@ -27,32 +27,39 @@ else if (@Session["ID"].Equals(1))
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nom)
-            </td>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.nom)
+    </td>
 
-            @if (@Session["ID"] == null)
-            {
-                <td>
-                    @Html.ActionLink("Tous les articles", "Articlesconstru", new { id = item.constructeurID })
-                </td>
-            }
-            else if (@Session["ID"].Equals(1))
-            {
-                <td>
-                    @Html.ActionLink("Modifier", "Edit", new { id = item.constructeurID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.constructeurID }) |
-                    @Html.ActionLink("Supprimer", "Delete", new { id = item.constructeurID }) |
-                    @Html.ActionLink("Tous les articles", "Articlesconstru", new { id = item.constructeurID })
-                </td>
-
-            }
+    @if (@Session["ID"] == null)
+    {
+        <td>
+            @Html.ActionLink("Tous les articles", "Articlesconstru", new { id = item.constructeurID })
+        </td>
+    }
+    else if (@Session["ID"].Equals(1))
+    {
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id = item.constructeurID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.constructeurID }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.constructeurID }) |
+            @Html.ActionLink("Tous les articles", "Articlesconstru", new { id = item.constructeurID })
+        </td>
 
 
+}
+else
+{
+<td>
+    @Html.ActionLink("Tous les articles", "Articlesconstru", new { id = item.constructeurID })
+</td>
+}
 
 
-        </tr>
+
+
+</tr>
     }
 
 </table>
