@@ -51,6 +51,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.etat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etat)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.description)
         </dt>
 
@@ -82,20 +90,14 @@
             @Html.DisplayFor(model => model.date_mise)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.heure)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.heure)
-        </dd>
+        
 
     </dl>
 </div>
 <p>
     @if (Session["Nom"] != null)
     {
-        @Html.ActionLink("Edit", "Edit", new { id = Model.articleID }) |
-                                                                       }
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Edit", "Edit", new { id = Model.articleID }) 
+                }
+    @Html.ActionLink("Back to List", "Index")
 </p>

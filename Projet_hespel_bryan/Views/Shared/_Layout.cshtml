@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,23 +23,24 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
                     <li>@Html.ActionLink("A propos", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Boutique", "Index", "Articles")</li>
                     <li>@Html.ActionLink("Catégories", "Index", "Categories")</li>
                     <li>@Html.ActionLink("Constructeurs", "Index", "Constructeurs")</li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        @if (Session["Nom"] == null)
-                        {
-                            <li>@Html.ActionLink("Inscription", "Inscription", "Login")</li>
-                            <li>@Html.ActionLink("Connexion", "Index", "Login")</li>
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink("Mon Compte", "Compte", "Users")</li>
-                            <li>@Html.ActionLink("Deconnexion", "Deco", "Login")</li>
-                        }
-                    </ul>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["Nom"] == null)
+                    {
+                        <li>@Html.ActionLink("Inscription", "Inscription", "Login")</li>
+                        <li>@Html.ActionLink("Connexion", "Index", "Login")</li>
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Mon Compte", "Compte", "Users")</li>
+                        <li>@Html.ActionLink("Deconnexion", "Deco", "Login")</li>
+                        <li>@Html.ActionLink("Mes Ventes", "Vente", "Articles")</li>
+                    }
+                </ul>
             </div>
         </div>
     </div>
@@ -67,4 +68,5 @@
 <script src="~/FrontEnd/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="~/FrontEnd/js/charts-home.js"></script>
 <script src="~/FrontEnd/monjs/Login.js"></script>
+<script src="~/FrontEnd/vendor/bootstrap/css/bootstrap.css"></script>
 </html>

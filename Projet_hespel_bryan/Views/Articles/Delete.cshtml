@@ -1,12 +1,12 @@
 ﻿@model Projet_hespel_bryan.Models.Article
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Supprimer";
 }
 
-<h2>Delete</h2>
+<h2>Supprimer</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Êtes-vous sûr de vouloir supprimer ceci</h3>
 <div>
     <h4>Article</h4>
     <hr />
@@ -52,6 +52,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.etat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etat)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.description)
         </dt>
 
@@ -83,13 +91,7 @@
             @Html.DisplayFor(model => model.date_mise)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.heure)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.heure)
-        </dd>
+        
 
     </dl>
 
@@ -97,8 +99,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Revenir à la Liste", "Vente")
         </div>
     }
 </div>

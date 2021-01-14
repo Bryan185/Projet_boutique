@@ -8,17 +8,26 @@ using System.Web;
 using System.Web.Mvc;
 using Projet_hespel_bryan.Models;
 using Projet_hespel_bryan.dal;
+using Projet_hespel_bryan.DTO;
+using Projet_hespel_bryan.Interface;
 
 namespace Projet_hespel_bryan.Controllers
 {
     public class ArticlesController : Controller
     {
         private BoutiqueContext db = new BoutiqueContext();
-
+        private IRepository dbs;
         // GET: Articles
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+           
+
+            ViewBag.CurrentFilter = searchString;
             var articles = db.Articles.Include(a => a.Catégorie).Include(a => a.Constructeur).Include(a => a.User);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(s => s.nom_article.Contains(searchString));
+            }
             return View(articles.ToList());
         }
 
@@ -51,7 +60,7 @@ namespace Projet_hespel_bryan.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "articleID,userID,nom_article,type,description,prix,date_transaction,date_mise,heure,categorieID,constructeurID")] Article article)
+        public ActionResult Create([Bind(Include = "articleID,userID,nom_article,type,etat,description,prix,date_transaction,date_mise,categorieID,constructeurID")] Article article)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +73,13 @@ namespace Projet_hespel_bryan.Controllers
             ViewBag.constructeurID = new SelectList(db.Constructeurs, "constructeurID", "nom", article.constructeurID);
             ViewBag.userID = new SelectList(db.Users, "userID", "prenom", article.userID);
             return View(article);
+        }
+
+        public ActionResult Vente()
+        {
+            List<VenteDTO> liste = dbs.vente((int)Session["ID"]);
+            return View(liste);
+
         }
 
         // GET: Articles/Edit/5
@@ -89,13 +105,13 @@ namespace Projet_hespel_bryan.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "articleID,userID,nom_article,type,description,prix,date_transaction,date_mise,heure,categorieID,constructeurID")] Article article)
+        public ActionResult Edit([Bind(Include = "articleID,userID,nom_article,type,etat,description,prix,date_transaction,date_mise,categorieID,constructeurID")] Article article)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(article).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Vente");
             }
             ViewBag.categorieID = new SelectList(db.Categories, "categorieID", "nom_categorie", article.categorieID);
             ViewBag.constructeurID = new SelectList(db.Constructeurs, "constructeurID", "nom", article.constructeurID);
@@ -136,6 +152,10 @@ namespace Projet_hespel_bryan.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ArticlesController()
+        {
+            dbs = new Repository();
         }
     }
 }

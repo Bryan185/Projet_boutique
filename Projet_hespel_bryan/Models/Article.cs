@@ -20,19 +20,19 @@ namespace Projet_hespel_bryan.Models
         public string nom_article { get; set; }
         public string type { get; set; }
 
+        public Boolean etat { get; set; }
+
         public string description { get; set; }
 
         public float prix { get; set; }
 
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime? date_transaction { get; set; }
 
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime? date_mise { get; set; }
 
-        [DataType(DataType.Time)]
-        public DateTime heure { get; set; }
-
+        
         public int categorieID{ get; set; }
         public virtual Categorie Catégorie { get; set; }
 

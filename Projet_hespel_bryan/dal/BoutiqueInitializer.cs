@@ -43,8 +43,8 @@ namespace Projet_hespel_bryan.dal
             context.SaveChanges();
             var constructeurs = new List<Constructeur>
             {
-                new Constructeur{nom="Samsung"},
-                new Constructeur{nom="Sony"}
+                new Constructeur{constructeurID='1',nom="Samsung"},
+                new Constructeur{constructeurID='2',nom="Sony"}
             };
             constructeurs.ForEach(c => context.Constructeurs.Add(c));
             context.SaveChanges();

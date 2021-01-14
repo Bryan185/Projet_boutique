@@ -10,6 +10,10 @@ namespace Projet_hespel_bryan.Interface
     {
         LoginDTO Authentifier(string email, string password);
         List<ArticleDTO> construct(int id);
-        //LoginDTO Compte(string email, string password, string adresse, string prenom, string nom);
+
+        List<VenteDTO> vente(int id);
+
+        List<ArticleDTO> catego(int id);
+        
     }
 }

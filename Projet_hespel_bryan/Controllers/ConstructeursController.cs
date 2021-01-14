@@ -22,7 +22,6 @@ namespace Projet_hespel_bryan.Controllers
         public ActionResult Index()
         {
             var constructeurs = db.Constructeurs.Include(a => a.Articles);
-
             return View(constructeurs.ToList());
         }
         public ActionResult Articlesconstru(int id)

@@ -12,10 +12,16 @@
 else
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Créer nouveau", "Create")
     </p>
 }
-
+@using (Html.BeginForm())
+{
+    <p>
+        Chercher le nom de l'article : @Html.TextBox("SearchString")
+        <input type="submit" value="Rechercher" />
+    </p>
+}
 
 <table class="table">
     <tr>
@@ -23,11 +29,10 @@ else
             @Html.DisplayNameFor(model => model.Catégorie.nom_categorie)
         </th>
         <th>
-
-            @Html.DisplayNameFor(model => model.Constructeur.nom) constructeur
+            @Html.DisplayNameFor(model => model.Constructeur.nom)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.prenom) du vendeur
+            @Html.DisplayNameFor(model => model.User.prenom)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nom_article)
@@ -36,73 +41,58 @@ else
             @Html.DisplayNameFor(model => model.type)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.etat)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.prix)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date_transaction)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.date_mise)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.heure)
-        </th>
+
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Catégorie.nom_categorie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Constructeur.nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.prenom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nom_article)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.prix)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.date_transaction)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.date_mise)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.heure)
-            </td>
-            @if (Session["Nom"] == null)
-            {
-                <td>
+        if (item.etat != true)
+        {
 
-                    @Html.ActionLink("Details", "Details", new { id = item.articleID })
-                </td>
-            }
 
-            else
-            {
+            <tr>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.articleID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.articleID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.articleID })
+                    @Html.DisplayFor(modelItem => item.Catégorie.nom_categorie)
                 </td>
-            }
-        </tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Constructeur.nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nom_article)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.etat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prix)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date_mise)
+                </td>
+
+            </tr>
+        }
     }
-
 </table>

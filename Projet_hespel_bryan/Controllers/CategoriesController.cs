@@ -8,17 +8,27 @@ using System.Web;
 using System.Web.Mvc;
 using Projet_hespel_bryan.Models;
 using Projet_hespel_bryan.dal;
+using Projet_hespel_bryan.DTO;
+using Projet_hespel_bryan.Interface;
 
 namespace Projet_hespel_bryan.Controllers
 {
     public class CategoriesController : Controller
     {
         private BoutiqueContext db = new BoutiqueContext();
+        private IRepository dbs;
 
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            var categorie = db.Categories.Include(a => a.Articles);
+            return View(categorie.ToList());
+        }
+
+        public ActionResult Articlescatego(int id)
+        {
+            List<ArticleDTO> liste = dbs.catego(id);
+            return View(liste);
         }
 
         // GET: Categories/Details/5
@@ -123,6 +133,10 @@ namespace Projet_hespel_bryan.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public CategoriesController()
+        {
+            dbs = new Repository();
         }
     }
 }

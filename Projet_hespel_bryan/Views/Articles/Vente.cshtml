@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Projet_hespel_bryan.DTO.VenteDTO>
+@{
+    ViewBag.Title = "Vente";
+}
+
+<h2>Vente</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.articleID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_article)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.etat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_transaction)
+        </th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.articleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_article)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.etat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_transaction)
+            </td>
+           
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.articleID }) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.articleID })
+                </td>
+            
+        </tr>
+
+
+    }
+
+
+
+</table>
+
+
+

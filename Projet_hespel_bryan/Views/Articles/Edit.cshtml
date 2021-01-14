@@ -1,23 +1,20 @@
 ﻿@model Projet_hespel_bryan.Models.Article
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Modifier";
 }
-
 <h2>Edit</h2>
-
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
     <h4>Article</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.articleID)
-
-    @Html.HiddenFor(model => model.userID, htmlAttributes: new { @Value = Session["ID"] })
+    @Html.HiddenFor(model => model.userID, htmlAttributes: new { @Value = Model.userID })
 
     <div class="form-group">
         @Html.LabelFor(model => model.nom_article, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -34,7 +31,13 @@
             @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
         </div>
     </div>
-
+    <div class="form-group">
+        @Html.LabelFor(model => model.etat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.etat, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.etat, "", new { @class = "text-danger" })
+        </div>
+    </div>
     <div class="form-group">
         @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -42,7 +45,6 @@
             @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(model => model.prix, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -50,31 +52,8 @@
             @Html.ValidationMessageFor(model => model.prix, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.date_transaction, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.date_transaction, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.date_transaction, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.date_mise, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.date_mise, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.date_mise, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.heure, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.heure, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.heure, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
+    @Html.HiddenFor(model => model.date_transaction, htmlAttributes: new { @Value = DateTime.Now.ToString("dd/MM/yyyy H:mm:ss") })
+    @Html.HiddenFor(model => model.date_mise, htmlAttributes: new { @Value = DateTime.Now.ToString("dd/MM/yyyy H:mm:ss")})
     <div class="form-group">
         @Html.LabelFor(model => model.categorieID, "categorieID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -82,7 +61,6 @@
             @Html.ValidationMessageFor(model => model.categorieID, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(model => model.constructeurID, "constructeurID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -90,7 +68,6 @@
             @Html.ValidationMessageFor(model => model.constructeurID, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Save" class="btn btn-default" />
@@ -98,11 +75,9 @@
     </div>
 </div>
 }
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour à la Liste", "Vente")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
