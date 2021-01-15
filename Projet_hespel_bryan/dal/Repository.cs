@@ -25,7 +25,7 @@ namespace Projet_hespel_bryan.dal
 
         public List<VenteDTO> vente (int id)
         {
-            var logg = (from r in db.Articles where r.userID == id select new VenteDTO {articleID = r.articleID,nom_article = r.nom_article,type = r.type, etat = r.etat, userID = r.userID,prix = r.prix, date_transaction = r.date_transaction });
+            var logg = (from r in db.Articles where r.userID == id select new VenteDTO {articleID = r.articleID,nom_article = r.nom_article,type = r.type, etat = r.etat, userID = r.userID,prix = r.prix, date_transaction = r.date_transaction,date_mise = r.date_mise });
             return logg.ToList();
         }
 
